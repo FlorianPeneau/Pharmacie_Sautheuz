@@ -1,0 +1,63 @@
+<!-- views/ordonnance.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordonnance</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <div class="container mx-auto mt-8 p-8 bg-white rounded-lg shadow-lg">
+
+        <h1 class="text-3xl font-bold mb-8 text-center text-blue-700">Ordonnance</h1>
+
+        <table class="w-full mb-8">
+            <thead>
+                <tr class="bg-blue-500 text-white">
+                    <th class="text-left py-2">ID Médecin</th>
+                    <th class="text-left py-2">Date de Création</th>
+                    <th class="text-left py-2">Durée du Traitement (en jours)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% ordonnanceData.forEach(ordonnance => { %>
+                    <tr class="hover:bg-gray-200 transition duration-300">
+                        <td class="py-2"><%= ordonnance.id_medecin %></td>
+                        <td class="py-2"><%= new Date(ordonnance.date_creation).toLocaleDateString() %></td>
+                        <td class="py-2"><%= ordonnance.duree_traitement %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+
+        <h2 class="text-2xl font-bold mb-4 text-center text-blue-700">Données de médicament</h2>
+        <table class="w-full">
+            <thead>
+                <tr class="bg-blue-500 text-white">
+                    <th class="text-left py-2">Nom</th>
+                    <th class="text-left py-2">Posologie</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% ordonnanceData.forEach(ordonnance => { %>
+                    <tr class="hover:bg-gray-200 transition duration-300">
+                        <td class="py-2"><%= ordonnance.nom %></td>
+                        <td class="py-2"><%= ordonnance.posologie %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+
+    </div>
+
+    <!-- Bouton pour supprimer l'ordonnance -->
+    <% ordonnanceData.forEach(ordonnance => { %>
+        <form action="/client/supprimer_ordonnance/<%= ordonnance.id_ordonnance %>" method="post" class="mt-4 text-center">
+            <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">Supprimer l'ordonnance</button>
+        </form>
+        <% }); %>
+
+</body>
+</html>

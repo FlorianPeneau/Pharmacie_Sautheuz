@@ -1,0 +1,43 @@
+<!-- Formulaire d'ajout -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un client</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <div class="container mx-auto mt-8 p-8 bg-white rounded-lg shadow-lg">
+
+        <h2 class="text-3xl font-bold mb-8 text-center text-blue-700">Ajouter un Client</h2>
+
+        <form action="/client/ajouter" method="post" class="text-center">
+
+            <label for="nom_client" class="block text-sm font-medium text-gray-600">Nom :</label>
+            <input type="text" id="nom_client" name="nom_client" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required>
+
+            <label for="prenom" class="block mt-4 text-sm font-medium text-gray-600">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required>
+
+            <label for="annee_naissance" class="block mt-4 text-sm font-medium text-gray-600">Année de Naissance :</label>
+            <input type="text" id="annee_naissance" name="annee_naissance" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required>
+
+            <label for="num_secu_sociale" class="block mt-4 text-sm font-medium text-gray-600">Numéro de Sécurité Sociale :</label>
+            <input type="text" id="num_secu_sociale" name="num_secu_sociale" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required>
+
+            <label for="mutuelle_nom" class="block mt-4 text-sm font-medium text-gray-600">Mutuelle Nom :</label>
+            <input type="text" id="mutuelle_nom" name="mutuelle_nom" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required>
+
+            <label for="mutuelle_numero" class="block mt-4 text-sm font-medium text-gray-600">Mutuelle Numéro :</label>
+            <input type="text" id="mutuelle_numero" name="mutuelle_numero" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required>
+
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4">Ajouter</button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

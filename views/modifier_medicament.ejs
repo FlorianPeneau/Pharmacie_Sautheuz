@@ -1,0 +1,34 @@
+<!-- Modifier un Médicament -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier un Médicament</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <div class="container mx-auto mt-8 p-8 bg-white rounded-lg shadow-lg">
+
+        <h1 class="text-3xl font-bold mb-8 text-center text-blue-700">Modifier un Médicament</h1>
+
+        <form action="/stock/modifier/<%= medicament.id_medicament %>" method="post" class="text-center">
+
+            <label for="nom_medicament" class="block text-sm font-medium text-gray-600">Nom :</label>
+            <input type="text" id="nom_medicament" name="nom_medicament" placeholder="Nom" value="<%= medicament.nom %>" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required>
+
+            <label for="posologie" class="block mt-4 text-sm font-medium text-gray-600">Posologie :</label>
+            <input type="text" id="posologie" name="posologie" placeholder="Posologie" value="<%= medicament.posologie %>" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required>
+
+            <label for="stock" class="block mt-4 text-sm font-medium text-gray-600">Stock :</label>
+            <input type="text" id="stock" name="stock" placeholder="Stock" value="<%= medicament.stock %>" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required>
+
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4">Enregistrer les modifications</button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

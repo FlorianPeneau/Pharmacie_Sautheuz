@@ -1,0 +1,54 @@
+<!-- views/stock.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <div class="container mx-auto mt-8 p-8 bg-white rounded-lg shadow-lg">
+
+        <h1 class="text-3xl font-bold mb-8 text-center text-blue-700">Liste des Médicaments</h1>
+
+        <table class="w-full">
+            <thead>
+                <tr class="bg-blue-500 text-white">
+                    <th class="text-left py-2">ID Médicament</th>
+                    <th class="text-left py-2">Nom</th>
+                    <th class="text-left py-2">Posologie</th>
+                    <th class="text-left py-2">Stock</th>
+                    <th class="text-left py-2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% medicaments.forEach(medicament => { %>
+                    <tr class="hover:bg-gray-200 transition duration-300">
+                        <td class="py-2"><%= medicament.id_medicament %></td>
+                        <td class="py-2"><%= medicament.nom %></td>
+                        <td class="py-2"><%= medicament.posologie %></td>
+                        <td class="py-2"><%= medicament.stock %></td>
+                        <td class="py-2">
+                            <a href="/stock/modifier/<%= medicament.id_medicament %>" class="text-blue-500 hover:text-blue-700 mr-2">
+                                <strong>&#9998;</strong>
+                            </a>
+                            <form action="/stock/supprimer/<%= medicament.id_medicament %>" method="post" class="inline">
+                                <button type="submit" class="text-red-500 hover:text-red-700">&#10006;</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+
+        <h1 class="text-3xl font-bold mt-8 mb-4 text-center text-blue-700">Ajouter un médicament :</h1>
+        <form action="/stock/ajouter" method="get" class="text-center">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Ajouter un médicament</button>
+        </form>
+
+    </div>
+
+</body>
+</html>
