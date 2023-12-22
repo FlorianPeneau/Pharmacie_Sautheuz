@@ -3,6 +3,7 @@
 Prérequis :
 
 - Installer Node.JS
+- Base de données utilisée avec phpmyadmin
 
 Faire ->
 
