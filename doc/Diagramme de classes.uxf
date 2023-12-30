@@ -1,0 +1,41 @@
+<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><element><id>UMLClass</id><coordinates><x>333</x><y>216</y><w>279</w><h>144</h></coordinates><panel_attributes>Pharmacie SAUTEUHZ
+--
+- id_pharmacie: int (Clé primaire)
+- adresse: string
+- telephone: string
+- email: string
+--
++ get_clients(): List&lt;Clients&gt;
++ get_medicament(): List&lt;Medicament&gt;
++ add_client(client: Client): void
++ add_medicament(medicament: Medicament): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>639</x><y>423</y><w>270</w><h>135</h></coordinates><panel_attributes>Médicament
+--
+- id_medicament: int (Clé primaire)
+- nom: string
+- posologie: string
+- stock: int
+--
++ get-ordonnances(): List&lt;Ordonnance&gt;
++ add_ordonnance(ordonnance: Ordonance): void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>333</x><y>423</y><w>279</w><h>135</h></coordinates><panel_attributes>Ordonnance
+--
+- id_ordonnance: int (Clé primaire)
+- id_client: int (Clé étrangère)
+- nom_medecin: string
+- date_création: date
+- duree_traitement: int
+--
++ get_medicaments(): List&lt;Medicament&gt;
++ add_medicament(medicament: Medicament): void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>27</x><y>423</y><w>279</w><h>162</h></coordinates><panel_attributes>Client
+--
+- id_client: int (Clé primaire)
+- nom: string
+- prenom: string
+- date-naissance: date
+- num_securite_sociale: string (unique)
+- mutuelle_nom: string
+- mutuelle_nomero: string
+--
++ get_ordonnance(): List&lt;Ordonnance&gt;
++ add_ordonnance(ordonnance: Ordonnance): void</panel_attributes><additional_attributes></additional_attributes></element></diagram>
